@@ -1,0 +1,54 @@
+<div class="container my-5 new-page">
+  <form class="needs-validation " action="/restaurants" method="POST" >
+    <div class="form-group row mb-2 ">
+      <label  for="inputName">Name</label>
+      <input type="text" class="form-control" id="inputName" placeholder="EX: 麥當勞" name="name" required>
+    </div>
+    <div class="form-group row mb-2">
+      <label for="inputNameEn">English Name</label>
+      <input type="text" class="form-control" id="inputNameEn" placeholder="EX: McDonald's" name="name_en" required>
+      <div class="invalid-feedback">
+          Please choose a username.
+      </div>
+    </div>
+    <div class="form-group row mb-2">
+      <label for="inputCategory">Category</label>
+      <input type="text" class="form-control" id="inputCategory" placeholder="EX: 義式餐廳" name="category" required>
+    </div>
+    <div class="form-group row mb-2 ">
+      <label for="inputImageURL">Image URL</label>
+      <input type="text" class="form-control " id="inputImageURL" placeholder="EX: www.google.com" name="image" required>
+    </div>
+
+    <div class="form-group row mb-2">
+      <label for="inputLocation">Location</label>
+      <input type="text" class="form-control" id="inputLocation" placeholder="EX: 台北市信義區信義路五段7號" name="location" required>
+    </div>
+
+    <div class="form-group row mb-2">
+      <label for="inputPhone">Phone Number</label>
+      <input type="tel" class="form-control" id="inputPhone" placeholder="EX: 0912345678" name="phone" required>
+    </div>
+    
+    <div class="form-group row mb-2">
+      <label for="inputMap">Google Map URL</label>
+      <input type="text" class="form-control" id="inputMap" placeholder="EX: https://goo.gl/maps/nrQViMRtRFBBwJdLA" name="google_map" required>
+    </div>
+
+    <div class="form-group row mb-2">
+      <label for="inputRating">Rating</label>
+      <input type="number" type="number" min="1.0" max="5.0" step="0.1" class="form-control" id="inputRating" placeholder="EX: 5" name="rating" required>
+    </div>
+    
+    <div class="form-group row mb-2">
+      <label for="inputEmail4">Description</label>
+      <textarea class="form-control" id="textareaDescription" rows="3" name="description" required></textarea>
+    </div>
+   
+    <div class="form-group row mt-3">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </form>
+</div> 

@@ -1,0 +1,105 @@
+<!-- 設定 edit 頁面 -->
+<h1 class="mb-1 restaurant-show-title">編輯餐廳</h1>
+<div class="container py-5">
+
+  <div class="row">
+    <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+      <div class="card">
+        <div class="card-body">
+
+          <form method="POST" action="/restaurants/{{ restaurant._id }}/edit">
+            <div class="form-group form-row">
+              <label for="name" class="col-md-4 col-form-label">
+                餐廳名稱
+              </label>
+              <div class="input-group mb-1 mr-5">
+                <input type="text" name="name" class="form-control" id="name" value="{{ restaurant.name }}" required>
+              </div>
+            </div>
+
+            <div class="form-group form-row mb-2 align-items-center">
+              <label for="name_en" class="col-md-4 col-form-label">英文名稱
+              </label>
+              <div class="input-group mb-1 mr-5">
+                <input type="text" class="form-control" id="name_en" name="name_en" value="{{ restaurant.name_en }}">
+              </div>
+            </div>
+
+            <div class="form-group form-row mb-2 align-items-center">
+              <label for="category" class="col-md-4 col-form-label">餐廳類別
+              </label>
+              <div class="input-group mb-1 mr-5">
+                <select class="custom-select" type="text" id="category" name="category">
+                  <option selected value="{{ restaurant.category }}">選擇類別...</option>
+                  <option>義式餐廳</option>
+                  <option>中東料理</option>
+                  <option>日本料理</option>
+                  <option>美式</option>
+                  <option>酒吧</option>
+                  <option>咖啡</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group form-row mb-2 align-items-center">
+              <label for="image" class="col-md-4 col-form-label">餐廳圖片連結
+              </label>
+              <div class="input-group mb-1 mr-5">
+                <input type="text" class="form-control" id="image" name="image" placeholder="http://..."
+                  value="{{ restaurant.image }}">
+              </div>
+            </div>
+
+            <div class="form-group form-row mb-2 align-items-center">
+              <label for="location" class="col-md-4 col-form-label">餐廳地址
+              </label>
+              <div class="input-group mb-1 mr-5">
+                <input type="text" class="form-control" id="location" name="location" value="{{ restaurant.location }}">
+              </div>
+            </div>
+
+            <div class="form-group form-row mb-2 align-items-center">
+              <label for="phone" class="col-md-4 col-form-label">餐廳電話
+              </label>
+              <div class="input-group mb-1 mr-5">
+                <input type="text" class="form-control" id="phone" name="phone" value="{{ restaurant.phone }}">
+              </div>
+            </div>
+
+            <div class="form-group form-row mb-2 align-items-center">
+              <label for="google_map" class="col-md-4 col-form-label">餐廳地圖位置
+              </label>
+              <div class="input-group mb-1 mr-5">
+                <input type="text" class="form-control" id="google_map" name="google_map"
+                  value="{{ restaurant.google_map }}">
+              </div>
+            </div>
+
+            <div class="form-group form-row mb-2 align-items-center">
+              <label for="rating" class="col-md-4 col-form-label">餐廳評價
+              </label>
+              <div class="input-group mb-1 mr-5">
+                <input type="number" class="form-control" id="rating" name="rating" value="{{ restaurant.rating }}"
+                  min="0" max="5" step=".1">
+              </div>
+            </div>
+
+            <div class="form-group form-row mb-2 align-items-center">
+              <label for="description" class="col-md-4 col-form-label">餐廳介紹
+              </label>
+              <div class="input-group mb-1 mr-5">
+                <input type="text" class="form-control" id="description" name="description"
+                  value="{{ restaurant.description }}">
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-success mr-2" type="submit">存檔</button>
+              <a href="/" class="btn btn-danger" type="submit">返回</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
