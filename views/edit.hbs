@@ -1,105 +1,39 @@
-<!-- 設定 edit 頁面 -->
-<h1 class="mb-1 restaurant-show-title">編輯餐廳</h1>
-<div class="container py-5">
+<h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
+<div class="container">
+  <div class="row mb-5">
+    {{!-- <div class="col-12 col-md-10 mx-auto"> --}}
+      <form action="/restaurants/{{restaurant._id}}?_method=PUT" method="POST" class="row col-12 col-md-10 mx-auto">
+        <label for="name" class="col-2 text-center ">餐廳名稱:</label>
+        <input class="col-9 mb-2" type="text" id="name" name="name" value="{{restaurant.name}}" required>
+        <label for="name_en" class="col-2 text-center">英文名稱:</label>
+        <input class="col-9 mb-2" type="text" id="name_en" name="name_en" value="{{restaurant.name_en}}" required>
+        <label for="category" class="col-2 text-center">類別:</label>
+        <input class="col-9 mb-2" type="text" id="category" name="category" value="{{restaurant.category}}" required>
+        <label for="image" class="col-2 text-center">圖片:</label>
+        <input class="col-9 mb-2" type="text" id="image" name="image" value="{{restaurant.image}}">
+        <label for="location" class="col-2 text-center">地點:</label>
+        <input class="col-9 mb-2" type="text" id="location" name="location" value="{{restaurant.location}} " required>
+        <label for="phone" class="col-2 text-center">電話:</label>
+        <input class="col-9 mb-2" type="text" id="phone" name="phone" value="{{restaurant.phone}}" required>
+        <label for="google_map" class="col-2 text-center">地圖:</label>
+        <input class="col-9 mb-2" type="text" id="google_map" name="google_map" value="{{restaurant.google_map}} "
+          required>
+        <label for="rating" class="col-2 text-center">評分:</label>
+        <input class="col-9 mb-2" type="number" id="rating" name="rating" value="{{restaurant.rating}}" required
+          min="0.0" max="5" step=0.1>
+        <label for="description" class="col-2 text-center">描述:</label>
+        <textarea class="col-9 mb-3" type="text" id="description" name="description" style="height: 100px;"
+          required>{{restaurant.description}}</textarea>
+        {{#if errorMessage}}<p class="col-2"></p>
+        <h6 class="col-9 mb-5 text-danger">{{errorMessage}}</h4>
+          {{/if}}
+          <div class="col-12 d-flex justify-content-center">
+            <a href="/" class="w-25 btn btn-secondary m-1">back</a>
+            <button class="w-25 btn btn-secondary m-1" type="submit">save</button>
+          </div>
 
-  <div class="row">
-    <div class="col-12 col-lg-10 col-xl-8 mx-auto">
-      <div class="card">
-        <div class="card-body">
-
-          <form method="POST" action="/restaurants/{{ restaurant._id }}/edit">
-            <div class="form-group form-row">
-              <label for="name" class="col-md-4 col-form-label">
-                餐廳名稱
-              </label>
-              <div class="input-group mb-1 mr-5">
-                <input type="text" name="name" class="form-control" id="name" value="{{ restaurant.name }}" required>
-              </div>
-            </div>
-
-            <div class="form-group form-row mb-2 align-items-center">
-              <label for="name_en" class="col-md-4 col-form-label">英文名稱
-              </label>
-              <div class="input-group mb-1 mr-5">
-                <input type="text" class="form-control" id="name_en" name="name_en" value="{{ restaurant.name_en }}">
-              </div>
-            </div>
-
-            <div class="form-group form-row mb-2 align-items-center">
-              <label for="category" class="col-md-4 col-form-label">餐廳類別
-              </label>
-              <div class="input-group mb-1 mr-5">
-                <select class="custom-select" type="text" id="category" name="category">
-                  <option selected value="{{ restaurant.category }}">選擇類別...</option>
-                  <option>義式餐廳</option>
-                  <option>中東料理</option>
-                  <option>日本料理</option>
-                  <option>美式</option>
-                  <option>酒吧</option>
-                  <option>咖啡</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group form-row mb-2 align-items-center">
-              <label for="image" class="col-md-4 col-form-label">餐廳圖片連結
-              </label>
-              <div class="input-group mb-1 mr-5">
-                <input type="text" class="form-control" id="image" name="image" placeholder="http://..."
-                  value="{{ restaurant.image }}">
-              </div>
-            </div>
-
-            <div class="form-group form-row mb-2 align-items-center">
-              <label for="location" class="col-md-4 col-form-label">餐廳地址
-              </label>
-              <div class="input-group mb-1 mr-5">
-                <input type="text" class="form-control" id="location" name="location" value="{{ restaurant.location }}">
-              </div>
-            </div>
-
-            <div class="form-group form-row mb-2 align-items-center">
-              <label for="phone" class="col-md-4 col-form-label">餐廳電話
-              </label>
-              <div class="input-group mb-1 mr-5">
-                <input type="text" class="form-control" id="phone" name="phone" value="{{ restaurant.phone }}">
-              </div>
-            </div>
-
-            <div class="form-group form-row mb-2 align-items-center">
-              <label for="google_map" class="col-md-4 col-form-label">餐廳地圖位置
-              </label>
-              <div class="input-group mb-1 mr-5">
-                <input type="text" class="form-control" id="google_map" name="google_map"
-                  value="{{ restaurant.google_map }}">
-              </div>
-            </div>
-
-            <div class="form-group form-row mb-2 align-items-center">
-              <label for="rating" class="col-md-4 col-form-label">餐廳評價
-              </label>
-              <div class="input-group mb-1 mr-5">
-                <input type="number" class="form-control" id="rating" name="rating" value="{{ restaurant.rating }}"
-                  min="0" max="5" step=".1">
-              </div>
-            </div>
-
-            <div class="form-group form-row mb-2 align-items-center">
-              <label for="description" class="col-md-4 col-form-label">餐廳介紹
-              </label>
-              <div class="input-group mb-1 mr-5">
-                <input type="text" class="form-control" id="description" name="description"
-                  value="{{ restaurant.description }}">
-              </div>
-            </div>
-
-            <div class="d-flex justify-content-end">
-              <button class="btn btn-success mr-2" type="submit">存檔</button>
-              <a href="/" class="btn btn-danger" type="submit">返回</a>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+      </form>
+      {{!--
+    </div> --}}
   </div>
 </div>

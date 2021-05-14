@@ -1,54 +1,38 @@
-<div class="container my-5 new-page">
-  <form class="needs-validation " action="/restaurants" method="POST" >
-    <div class="form-group row mb-2 ">
-      <label  for="inputName">Name</label>
-      <input type="text" class="form-control" id="inputName" placeholder="EX: 麥當勞" name="name" required>
-    </div>
-    <div class="form-group row mb-2">
-      <label for="inputNameEn">English Name</label>
-      <input type="text" class="form-control" id="inputNameEn" placeholder="EX: McDonald's" name="name_en" required>
-      <div class="invalid-feedback">
-          Please choose a username.
-      </div>
-    </div>
-    <div class="form-group row mb-2">
-      <label for="inputCategory">Category</label>
-      <input type="text" class="form-control" id="inputCategory" placeholder="EX: 義式餐廳" name="category" required>
-    </div>
-    <div class="form-group row mb-2 ">
-      <label for="inputImageURL">Image URL</label>
-      <input type="text" class="form-control " id="inputImageURL" placeholder="EX: www.google.com" name="image" required>
-    </div>
+<h1 class="mb-1 restaurant-show-title">新增餐廳</h1>
+<div class="container">
+  <div class="row mb-5">
+    {{!-- <div class="col-12 col-md-10 mx-auto"> --}}
+      <form action="/restaurants" method="POST" class="row col-12 col-md-10 mx-auto">
+        <label for="name" class="col-2 text-center ">餐廳名稱:</label>
+        <input class="col-9 mb-2" type="text" id="name" name="name" value="{{restaurant.name}}" required>
+        <label for="name_en" class="col-2 text-center">英文名稱:</label>
+        <input class="col-9 mb-2" type="text" id="name_en" name="name_en" value="{{restaurant.name_en}}" required>
+        <label for="category" class="col-2 text-center">類別:</label>
+        <input class="col-9 mb-2" type="text" id="category" name="category" value="{{restaurant.category}}" required>
+        <label for="image" class="col-2 text-center">圖片:</label>
+        <input class="col-9 mb-2" type="text" id="image" name="image" value="{{restaurant.image}}">
+        <label for="location" class="col-2 text-center">地點:</label>
+        <input class="col-9 mb-2" type="text" id="location" name="location" value="{{restaurant.location}} " required>
+        <label for="phone" class="col-2 text-center">電話:</label>
+        <input class="col-9 mb-2" type="text" id="phone" name="phone" value="{{restaurant.phone}}" required>
+        <label for="google_map" class="col-2 text-center">地圖:</label>
+        <input class="col-9 mb-2" type="text" id="google_map" name="google_map" value="{{restaurant.google_map}} " required>
+        <label for="rating" class="col-2 text-center">評分:</label>
+        <input class="col-9 mb-2" type="number" id="rating" name="rating" value="{{restaurant.rating}}" required min="0.0"
+          max="5" step=0.1>
+        <label for="description" class="col-2 text-center">描述:</label>
+        <textarea class="col-9 mb-3" type="text" id="description" name="description" style="height: 100px;"
+          required>{{restaurant.description}}</textarea>
+        {{#if errorMessage}}<p class="col-2"></p>
+        <h6 class="col-9  mb-5 text-danger">{{errorMessage}}</h4>
+          {{/if}}
+          <div class="col-12 d-flex justify-content-center">
+            <a href="/" class="w-25 btn btn-secondary m-1">back</a>
+            <button class="w-25 btn btn-secondary m-1" type="submit">create</button>
+          </div>
 
-    <div class="form-group row mb-2">
-      <label for="inputLocation">Location</label>
-      <input type="text" class="form-control" id="inputLocation" placeholder="EX: 台北市信義區信義路五段7號" name="location" required>
-    </div>
-
-    <div class="form-group row mb-2">
-      <label for="inputPhone">Phone Number</label>
-      <input type="tel" class="form-control" id="inputPhone" placeholder="EX: 0912345678" name="phone" required>
-    </div>
-    
-    <div class="form-group row mb-2">
-      <label for="inputMap">Google Map URL</label>
-      <input type="text" class="form-control" id="inputMap" placeholder="EX: https://goo.gl/maps/nrQViMRtRFBBwJdLA" name="google_map" required>
-    </div>
-
-    <div class="form-group row mb-2">
-      <label for="inputRating">Rating</label>
-      <input type="number" type="number" min="1.0" max="5.0" step="0.1" class="form-control" id="inputRating" placeholder="EX: 5" name="rating" required>
-    </div>
-    
-    <div class="form-group row mb-2">
-      <label for="inputEmail4">Description</label>
-      <textarea class="form-control" id="textareaDescription" rows="3" name="description" required></textarea>
-    </div>
-   
-    <div class="form-group row mt-3">
-      <div class="col-sm-10">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </div>
-  </form>
-</div> 
+      </form>
+      {{!--
+    </div> --}}
+  </div>
+</div>
