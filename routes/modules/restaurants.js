@@ -44,7 +44,7 @@ router.get("/sort", (req, res) => {
       )
 })
 
-//create 餐廳
+//新增餐廳
 router.get("/new", (req, res) => {
   res.render("new");
 });
@@ -81,7 +81,7 @@ router.post("/", (req, res) => {
       res.redirect("/")
     })
     .catch((error) => console.log("create error"))
-});
+})
 // 餐廳詳細內容
 router.get("/:id", (req, res) => {
   const id = req.params.id;
