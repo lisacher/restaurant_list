@@ -24,8 +24,8 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
           <a href="/restaurants/sort?type=A-Z" class="dropdown-item" type="button">A-Z</a>
           <a href="/restaurants/sort?type=Z-A" class="dropdown-item" type="button">Z-A</a>
-          <a href="/restaurants/sort?type=category" class="dropdown-item" type="button">category</a>
-          <a href="/restaurants/sort?type=location" class="dropdown-item" type="button">location</a>
+          <a href="/restaurants/sort?type=category" class="dropdown-item" type="button">餐廳分類</a>
+          <a href="/restaurants/sort?type=location" class="dropdown-item" type="button">餐廳地點</a>
         </div>
       </div>
     </div>
@@ -60,10 +60,10 @@
           </div>
         </a>
         <div class="w-100 row align-items-center justify-content-end no-gutters mb-3">
-          <a href="/restaurants/{{this._id}}/edit" class="col-3 text-danger">edit</a>
-          <a href="/restaurants/{{this._id}}" class="col-3 text-danger ">detail</a>
+          <a href="/restaurants/{{this._id}}/edit" class="col-3 text-danger">修改</a>
+          <a href="/restaurants/{{this._id}}" class="col-3 text-danger ">詳細</a>
           <form action="/restaurants/{{this._id}}?_method=DELETE" method="POST" class="col-3 p-0">
-            <button class="w-100 btn btn-warning ">delete</button>
+            <button class="w-100 btn btn-warning ">刪除</button>
           </form>
 
         </div>

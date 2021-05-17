@@ -12,25 +12,25 @@ router.get("/search", (req, res) => {
           restaurant.name.includes(keyword) ||
           restaurant.name_en.toLowerCase().includes(keyword.toLowerCase()) ||
           restaurant.category.toLowerCase().includes(keyword.toLowerCase())
-      );
+      )
       res.render("index", {
         pageTitle: "index",
         isIndex: true,
         restaurants: filterList,
-      });
+      })
     })
-    .catch(() => console.log("search error"));
+    .catch(() => console.log("search error"))
 })
 // sort by A-Z
 router.get("/sort", (req, res) => {
-  const keyword = req.query.type;
+  const keyword = req.query.type
   const sortType = {
     "A-Z": ["name_en", "asc","A-Z"],
     "Z-A": ["name_en", "desc","Z-A"],
-    category: ["category", "asc","類別"],
+    category: ["餐廳類型", "asc","類別"],
     location: ["location", "asc","地區"],
-  };
-  const [type, method,displayName] = sortType[keyword];
+  }
+  const [type, method,displayName] = sortType[keyword]
     Restaurants.find()
       .sort({ [type]: method })
       .lean()
@@ -46,8 +46,8 @@ router.get("/sort", (req, res) => {
 
 //新增餐廳
 router.get("/new", (req, res) => {
-  res.render("new");
-});
+  res.render("new")
+})
 router.post("/", (req, res) => {
   const {
     name,
@@ -59,7 +59,7 @@ router.post("/", (req, res) => {
     google_map,
     rating,
     description,
-  } = req.body;
+  } = req.body
   const restaurant = req.body
 
   if (
@@ -84,7 +84,7 @@ router.post("/", (req, res) => {
 })
 // 餐廳詳細內容
 router.get("/:id", (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id
   return Restaurants.findById(id)
     .lean()
     .then((restaurant) =>
@@ -98,7 +98,7 @@ router.get("/:id", (req, res) => {
 
 //編輯餐廳
 router.get("/:id/edit", (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id
 
   return Restaurants.findById(id)
     .lean()
@@ -120,7 +120,7 @@ router.put("/:id", (req, res) => {
     google_map,
     rating,
     description,
-  } = req.body;
+  } = req.body
   return Restaurants.findById(id)
     .then((restaurant) => {
       if (
